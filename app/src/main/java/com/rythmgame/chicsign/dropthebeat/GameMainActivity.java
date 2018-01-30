@@ -31,6 +31,10 @@ public class GameMainActivity extends Activity {
             public void onClick(View v) {
                 Intent i = new Intent(GameMainActivity.this, StageActivity.class);
                 startActivity(i);
+                if(onoff){
+                    onoff = false;
+                    mp.stop();
+                }
             }
         });
 
