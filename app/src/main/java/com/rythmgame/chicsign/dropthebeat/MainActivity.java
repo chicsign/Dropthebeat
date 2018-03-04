@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
         mp = MediaPlayer.create(MainActivity.this,R.raw.bgm);
         mp.setLooping(true);
 
-        mp.start();
+//        mp.start();
         start_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +36,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        mp.start();
+//        mp.start();
     }
 }
