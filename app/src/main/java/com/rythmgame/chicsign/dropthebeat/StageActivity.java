@@ -64,9 +64,14 @@ public class StageActivity extends Activity {
     private void setMap() {
         final Note note = new Note(getBaseContext());
         list = new ArrayList<>();
-        list.add(noteInfo(note,0));
-        list.add(noteInfo(note,100));
-
+        list.add(noteInfo(new Note(getBaseContext()),0));
+        list.add(noteInfo(new Note(getBaseContext()),100));
+        list.add(noteInfo(new Note(getBaseContext()),0));
+        list.add(noteInfo(new Note(getBaseContext()),100));
+        list.add(noteInfo(new Note(getBaseContext()),0));
+        list.add(noteInfo(new Note(getBaseContext()),100));
+        list.add(noteInfo(new Note(getBaseContext()),0));
+        list.add(noteInfo(new Note(getBaseContext()),100));
     }
 
     public static Pair<ImageView, Integer> noteInfo(ImageView src1, int src2) {
@@ -105,7 +110,7 @@ public class StageActivity extends Activity {
             @Override
             public void onAnimationEnd(Animation animation) {
 //                Log.d("BEB","remove v2 ID " + v2.getId());
-//                track.removeView(v2);
+                track.removeView(v2);
             }
 
             @Override
@@ -118,7 +123,7 @@ public class StageActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                anim.cancel();
+//                anim.cancel();
                 track.removeView(v2);
             }
         });
