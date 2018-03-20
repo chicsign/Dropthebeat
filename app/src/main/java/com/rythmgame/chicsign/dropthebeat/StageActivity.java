@@ -86,44 +86,21 @@ public class StageActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
 
-            dropNotes((ImageView) list.get(msg.arg1).first,(Integer) list.get(msg.arg1).second);
+            dropNotes((ImageView) list.get(msg.arg1).first,(Integer) list.get(msg.arg1).second , msg.arg1);
 //            Log.d("BEB","msg" + msg.arg1);
         }
     };
 
 
-    void dropNotes(ImageView noteview, int positionX) {
-        final ImageView v2 = noteview;
+    void dropNotes(ImageView noteview, int positionX , int index) {
+        final Note v2 = (Note) noteview;
         track = (RelativeLayout) findViewById(R.id.track1);
-        track.removeAllViews();
         track.addView(v2);
-        final TranslateAnimation anim = new TranslateAnimation(positionX, positionX, 0, 2460);
-        anim.setDuration(1640);
-        anim.setFillAfter(true);
-        v2.startAnimation(anim);
-        anim.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-//                Log.d("BEB","remove v2 ID " + v2.getId());
-                track.removeView(v2);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
         track.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                anim.cancel();
+                v2.cancel();
                 track.removeView(v2);
             }
         });
